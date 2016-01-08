@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('travelocity:crawl')->saturdays();
+        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('13:00');
 
     }
 }
