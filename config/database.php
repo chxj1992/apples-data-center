@@ -15,7 +15,7 @@ return [
             'port' => 3306,
             'database' => 'apples_data_center',
             'username' => 'root',
-            'password' => env('DB_PASS', '87822971'),
+            'password' => env('DB_PASS', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
             'prefix' => ''
