@@ -1,0 +1,28 @@
+{
+    "name": "chxj/data-center",
+    "description": "Apple's data center",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/lumen-framework": "5.2.*",
+        "vlucas/phpdotenv": "~2.2"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chxj1992\\DataCenter\\App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chxj1992\\DataCenter\\Tests\\": "tests/"
+        },
+        "classmap": [
+            "database/"
+        ]
+    }
+}
