@@ -1,6 +1,6 @@
-<?php namespace Chxj1992\DataCenter\App\Console\Commands;
+<?php namespace Chxj1992\ApplesDataCenter\App\Console\Commands;
 
-use Chxj1992\DataCenter\App\Models\TravelocityItineraries;
+use Chxj1992\ApplesDataCenter\App\Models\TravelocityItineraries;
 use Illuminate\Console\Command;
 
 class CrawlTravelOCity extends Command

@@ -1,4 +1,4 @@
-<?php namespace Chxj1992\DataCenter\App\Console;
+<?php namespace Chxj1992\ApplesDataCenter\App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \Chxj1992\DataCenter\App\Console\Commands\CrawlTravelOCity::class,
+        \Chxj1992\ApplesDataCenter\App\Console\Commands\CrawlTravelOCity::class,
     ];
 
     /**

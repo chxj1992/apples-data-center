@@ -43,12 +43,12 @@ $app->configure('database');
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Chxj1992\DataCenter\App\Exceptions\Handler::class
+    Chxj1992\ApplesDataCenter\App\Exceptions\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Chxj1992\DataCenter\App\Console\Kernel::class
+    Chxj1992\ApplesDataCenter\App\Console\Kernel::class
 );
 
 /*
@@ -63,11 +63,11 @@ $app->singleton(
 */
 
 // $app->middleware([
-//    Chxj1992\DataCenter\App\Http\Middleware\ExampleMiddleware::class
+//    Chxj1992\ApplesDataCenter\App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
 // $app->routeMiddleware([
-//     'auth' => Chxj1992\DataCenter\App\Http\Middleware\Authenticate::class,
+//     'auth' => Chxj1992\ApplesDataCenter\App\Http\Middleware\Authenticate::class,
 // ]);
 
 /*
@@ -81,8 +81,8 @@ $app->singleton(
 |
 */
 
- $app->register(Chxj1992\DataCenter\App\Providers\AppServiceProvider::class);
- $app->register(Chxj1992\DataCenter\App\Providers\EventServiceProvider::class);
+ $app->register(Chxj1992\ApplesDataCenter\App\Providers\AppServiceProvider::class);
+ $app->register(Chxj1992\ApplesDataCenter\App\Providers\EventServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ $app->singleton(
 |
 */
 
-$app->group(['namespace' => 'Chxj1992\DataCenter\App\Http\Controllers'], function ($app) {
+$app->group(['namespace' => 'Chxj1992\ApplesDataCenter\App\Http\Controllers'], function ($app) {
     require __DIR__.'/../app/Http/routes.php';
 });
 

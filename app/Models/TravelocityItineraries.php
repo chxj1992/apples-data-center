@@ -1,4 +1,4 @@
-<?php namespace Chxj1992\DataCenter\App\Models;
+<?php namespace Chxj1992\ApplesDataCenter\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

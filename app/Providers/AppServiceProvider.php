@@ -1,6 +1,6 @@
 <?php
 
-namespace Chxj1992\DataCenter\App\Providers;
+namespace Chxj1992\ApplesDataCenter\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

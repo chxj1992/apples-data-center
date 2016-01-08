@@ -1,4 +1,4 @@
-<?php namespace Chxj1992\DataCenter\Tests;
+<?php namespace Chxj1992\ApplesDataCenter\Tests;
 
 class ExampleTest extends TestCase
 {

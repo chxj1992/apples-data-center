@@ -1,6 +1,6 @@
 <?php
 
-namespace Chxj1992\DataCenter\App\Exceptions;
+namespace Chxj1992\ApplesDataCenter\App\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;

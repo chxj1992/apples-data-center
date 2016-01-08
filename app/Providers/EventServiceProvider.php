@@ -1,6 +1,6 @@
 <?php
 
-namespace Chxj1992\DataCenter\App\Providers;
+namespace Chxj1992\ApplesDataCenter\App\Providers;
 
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 
@@ -12,8 +12,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Chxj1992\DataCenter\App\Events\SomeEvent' => [
-            'Chxj1992\DataCenter\App\Listeners\EventListener',
+        'Chxj1992\ApplesDataCenter\App\Events\SomeEvent' => [
+            'Chxj1992\ApplesDataCenter\App\Listeners\EventListener',
         ],
     ];
 }

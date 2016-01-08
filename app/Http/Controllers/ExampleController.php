@@ -1,6 +1,6 @@
 <?php
 
-namespace Chxj1992\DataCenter\App\Http\Controllers;
+namespace Chxj1992\ApplesDataCenter\App\Http\Controllers;
 
 class ExampleController extends Controller
 {

@@ -1,4 +1,4 @@
-<?php namespace Chxj1992\DataCenter\App\Http\Middleware;
+<?php namespace Chxj1992\ApplesDataCenter\App\Http\Middleware;
 
 use Closure;
 

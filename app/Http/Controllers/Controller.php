@@ -1,4 +1,4 @@
-<?php namespace Chxj1992\DataCenter\App\Http\Controllers;
+<?php namespace Chxj1992\ApplesDataCenter\App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 
