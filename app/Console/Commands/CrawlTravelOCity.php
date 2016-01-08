@@ -29,7 +29,7 @@ class CrawlTravelOCity extends Command
     {
         TravelocityItineraries::truncate();
 
-        system('python ' . config('app.crawler_path') . 'travelocity/run.py > '
+        system('python ' . config('app.crawler_path') . '/travelocity/run.py > '
             . storage_path('logs') . '/travelocity_' . date('Y-m-d') . '.log');
     }
 
