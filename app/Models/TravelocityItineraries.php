@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TravelocityItineraries extends Model
 {
+    public $timestamps = false;
 
     public $table = 'travelocity_itineraries';
 

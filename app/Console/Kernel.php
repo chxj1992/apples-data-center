@@ -24,6 +24,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('17:00');
-        $schedule->command('travelocity:dump')->weekly()->saturdays()->at('18:00');
+        $schedule->command('travelocity:dump')->weekly()->saturdays()->at('20:00');
     }
 }

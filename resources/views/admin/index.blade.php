@@ -89,14 +89,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">$754</div>
+                                    <div class="huge">${{intval($inside)}}</div>
                                     <div>Inside Cabin Price</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left"> View Details (TODO) </span>
+                                <span class="pull-left"> View Details </span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                 <div class="clearfix"></div>
@@ -112,14 +112,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">$932</div>
+                                    <div class="huge">${{intval($oceanview)}}</div>
                                     <div>Oceanview Cabin Price</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left"> View Details (TODO) </span>
+                                <span class="pull-left"> View Details </span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                 <div class="clearfix"></div>
@@ -135,14 +135,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">$1024</div>
+                                    <div class="huge">${{intval($balcony)}}</div>
                                     <div>Balcony Cabin Price</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left"> View Details (TODO) </span>
+                                <span class="pull-left"> View Details </span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                 <div class="clearfix"></div>
@@ -158,14 +158,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">$1726</div>
+                                    <div class="huge">${{intval($suite)}}</div>
                                     <div>Suite Cabin Price</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left"> View Details (TODO) </span>
+                                <span class="pull-left"> View Details </span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                 <div class="clearfix"></div>
@@ -194,12 +194,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                @for ($i = 0; $i < 8; $i++)
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">download</span>
-                                        <i class="fa fa-fw fa-calendar"></i> itineraries_2016-01-08.sql
+                                @foreach ($exports as $export)
+                                    <a href="{{$export->path}}" class="list-group-item">
+                                        <span class="badge"> download </span>
+                                        <i class="fa fa-fw fa-calendar"></i> {{$export->name}}
                                     </a>
-                                @endfor
+                                @endforeach
                             </div>
                         </div>
 

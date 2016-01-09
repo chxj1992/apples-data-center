@@ -11,6 +11,7 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return view('admin.index');
-});
+
+$app->get('/', [
+    'as' => 'travelocity', 'uses' => 'TravelOCityController@index'
+]);
