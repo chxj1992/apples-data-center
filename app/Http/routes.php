@@ -15,3 +15,8 @@
 $app->get('/', [
     'as' => 'travelocity', 'uses' => 'TravelOCityController@index'
 ]);
+
+$app->get('/travelocity/chart', [
+    'as' => 'travelocity-chart', 'uses' => 'TravelOCityController@itinerariesByMonth'
+]);
+

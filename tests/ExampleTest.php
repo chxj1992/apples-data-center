@@ -1,5 +1,7 @@
 <?php namespace Chxj1992\ApplesDataCenter\Tests;
 
+use Chxj1992\ApplesDataCenter\App\Http\Controllers\TravelOCityController;
+
 class ExampleTest extends TestCase
 {
     /**
@@ -16,4 +18,7 @@ class ExampleTest extends TestCase
         );
     }
 
+    public function testA(){
+        TravelOCityController::itinerariesByMonth();
+    }
 }

@@ -79,7 +79,6 @@
             </div>
 
             <!-- /.row -->
-
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
@@ -89,7 +88,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">${{intval($inside)}}</div>
+                                    <div class="huge">${{$avg->inside}}</div>
                                     <div>Inside Cabin Price</div>
                                 </div>
                             </div>
@@ -112,7 +111,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">${{intval($oceanview)}}</div>
+                                    <div class="huge">${{$avg->oceanview}}</div>
                                     <div>Oceanview Cabin Price</div>
                                 </div>
                             </div>
@@ -135,7 +134,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">${{intval($balcony)}}</div>
+                                    <div class="huge">${{$avg->balcony}}</div>
                                     <div>Balcony Cabin Price</div>
                                 </div>
                             </div>
@@ -158,7 +157,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">${{intval($suite)}}</div>
+                                    <div class="huge">${{$avg->suite}}</div>
                                     <div>Suite Cabin Price</div>
                                 </div>
                             </div>
