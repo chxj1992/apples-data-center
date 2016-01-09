@@ -11,7 +11,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \Chxj1992\ApplesDataCenter\App\Console\Commands\CrawlTravelOCity::class,
+        \Chxj1992\ApplesDataCenter\App\Console\Commands\TravelOCityCrawl::class,
+        \Chxj1992\ApplesDataCenter\App\Console\Commands\TravelOCityDump::class,
     ];
 
     /**
@@ -22,6 +23,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('16:00');
+        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('17:00');
+        $schedule->command('travelocity:dump')->weekly()->saturdays()->at('18:00');
     }
 }

@@ -3,7 +3,7 @@
 use Chxj1992\ApplesDataCenter\App\Models\TravelocityItineraries;
 use Illuminate\Console\Command;
 
-class CrawlTravelOCity extends Command
+class TravelOCityCrawl extends Command
 {
     /**
      * The name and signature of the console command.
