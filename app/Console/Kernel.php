@@ -26,8 +26,7 @@ class Kernel extends ConsoleKernel
         // fix lumen timezone issue
         date_default_timezone_set(config('app.timezone'));
 
-//        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('17:00');
-        $schedule->command('travelocity:crawl')->dailyAt('19:17');;
+        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('16:00');
         $schedule->command('travelocity:dump')->weekly()->saturdays()->at('20:00');
     }
 }
