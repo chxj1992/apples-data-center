@@ -46,13 +46,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.blade.php">Apple's Data Center</a>
+            <a class="navbar-brand" href="#">Apple's Data Center</a>
         </div>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="index.blade.php"><i class="fa fa-fw fa-dashboard"></i> Travelocity </a>
+                    <a href="#"><i class="fa fa-fw fa-dashboard"></i> Travelocity </a>
                 </li>
             </ul>
         </div>
