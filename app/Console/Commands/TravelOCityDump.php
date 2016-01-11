@@ -35,7 +35,7 @@ class TravelOCityDump extends Command
         system('mysqldump -u' . $db['username'] . ' -p' . $db['password'] . ' ' . $db['database']
             . ' travelocity_itineraries >' . base_path('public') . $path);
 
-        Export::create(['project' => Project::TRAVELOCITY, 'name' => $name, 'path' => $path]);
+        Export::firstOrCreate(['project' => Project::TRAVELOCITY, 'name' => $name, 'path' => $path]);
     }
 
 }
