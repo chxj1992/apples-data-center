@@ -11,8 +11,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \Chxj1992\ApplesDataCenter\App\Console\Commands\TravelOCityCrawl::class,
-        \Chxj1992\ApplesDataCenter\App\Console\Commands\TravelOCityDump::class,
+        \Chxj1992\ApplesDataCenter\App\Console\Commands\CruiseCrawl::class,
+        \Chxj1992\ApplesDataCenter\App\Console\Commands\CruiseDump::class,
     ];
 
     /**
@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
         // fix lumen timezone issue
         date_default_timezone_set(config('app.timezone'));
 
-        $schedule->command('travelocity:crawl')->weekly()->saturdays()->at('16:00');
-        $schedule->command('travelocity:dump')->weekly()->saturdays()->at('20:00');
+        $schedule->command('cruise:crawl')->weekly()->saturdays()->at('16:00');
+        $schedule->command('cruise:dump')->weekly()->saturdays()->at('20:00');
     }
 }

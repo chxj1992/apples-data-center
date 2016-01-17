@@ -1,11 +1,12 @@
 <?php namespace Chxj1992\ApplesDataCenter\App\Http\Controllers;
 
 use Chxj1992\ApplesDataCenter\App\Enums\Project;
+use Chxj1992\ApplesDataCenter\App\Models\Cruises;
 use Chxj1992\ApplesDataCenter\App\Models\Export;
-use Chxj1992\ApplesDataCenter\App\Models\TravelocityItineraries;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
-class TravelOCityController extends Controller
+class CruiseController extends Controller
 {
 
     const PRICE_MIN = 100;
@@ -15,22 +16,35 @@ class TravelOCityController extends Controller
 
     public function index()
     {
-        $exports = Export::whereProject(Project::TRAVELOCITY)->orderBy('id', 'desc')->take(self::EXPORT_PAGE_SIZE)->get();;
+        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
 
-        $avg = TravelocityItineraries::select(DB::raw($this->buildSelectSQL()))->first();
+        $exports = Export::whereProject($project)->orderBy('id', 'desc')->take(self::EXPORT_PAGE_SIZE)->get();;
+        $avg = Cruises::whereProject($project)->select(DB::raw($this->buildSelectSQL()))->first();
 
-        return view('admin.index')
+        return view('admin.cruise')
+            ->with('project', $project)
             ->with('exports', $exports)
             ->with('avg', $avg);
     }
 
     public function itinerariesByMonth()
     {
-        $data = TravelocityItineraries::select(
+        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+
+        $data = Cruises::whereProject($project)->select(
             DB::raw($this->buildSelectSQL() . ", date_format(departure_time, '%Y-%m') as period")
         )->groupBy('period')->get();
 
         return response()->json($data);
+    }
+
+    private function validateProject($project)
+    {
+        if (!in_array($project, Project::getValues())) {
+            return Project::TRAVELOCITY;
+        }
+
+        return $project;
     }
 
     private function buildSelectSQL()

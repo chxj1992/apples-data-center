@@ -2,7 +2,9 @@
 
 $(function () {
 
-    $.getJSON('/travelocity/chart', function (data) {
+    var project = $('#project').val();
+
+    $.getJSON('/cruise/chart?project=' + project, function (data) {
         var itineraries = Morris.Line({
             element: 'travelocity-itineraries-chart',
             data: data,

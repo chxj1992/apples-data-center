@@ -4,21 +4,21 @@ use Chxj1992\ApplesDataCenter\App\Enums\Project;
 use Chxj1992\ApplesDataCenter\App\Models\Export;
 use Illuminate\Console\Command;
 
-class TravelOCityDump extends Command
+class CruiseDump extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'travelocity:dump';
+    protected $signature = 'cruise:dump';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'dump itineraries data from travelocity';
+    protected $description = 'dump cruises itineraries data';
 
     /**
      * Execute the console command.
@@ -27,15 +27,22 @@ class TravelOCityDump extends Command
      */
     public function handle()
     {
+        $this->dumpToSql(Project::ROYALCARIBBEAN);
+        $this->dumpToSql(Project::TRAVELOCITY);
+    }
+
+    private function dumpToSql($project = Project::TRAVELOCITY)
+    {
         $db = config('database.connections.apples_data_center');
 
-        $name = 'itineraries_' . date('Y-m-d') . '.sql';
-        $path = '/export/' . $name;
+        $name = 'cruises_' . $project . '_' . date('Y-m-d') . '.sql';
+
+        $path = '/export/cruises/' . $name;
 
         system('mysqldump -u' . $db['username'] . ' -p' . $db['password'] . ' ' . $db['database']
-            . ' travelocity_itineraries >' . base_path('public') . $path);
+            . ' cruises --where="from=' . $project . '" >' . base_path('public') . $path);
 
-        Export::firstOrCreate(['project' => Project::TRAVELOCITY, 'name' => $name, 'path' => $path]);
+        Export::firstOrCreate(['project' => $project, 'name' => $name, 'path' => $path]);
     }
 
 }

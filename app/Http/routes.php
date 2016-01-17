@@ -13,10 +13,10 @@
 
 
 $app->get('/', [
-    'as' => 'travelocity', 'uses' => 'TravelOCityController@index'
+    'as' => 'cruise', 'uses' => 'CruiseController@index'
 ]);
 
-$app->get('/travelocity/chart', [
-    'as' => 'travelocity-chart', 'uses' => 'TravelOCityController@itinerariesByMonth'
+$app->get('/cruise/chart', [
+    'as' => 'cruise-chart', 'uses' => 'CruiseController@itinerariesByMonth'
 ]);
 

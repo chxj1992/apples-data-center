@@ -34,6 +34,8 @@
 
 <body>
 
+<input id="project" class="hidden" value="{{$project}}">
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -52,7 +54,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="#"><i class="fa fa-fw fa-anchor"></i> Travelocity </a>
+                    <a href="#"><i class="fa fa-fw fa-anchor"></i> Cruise </a>
                 </li>
             </ul>
         </div>
@@ -67,8 +69,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Travelocity
-                        <small>Itineraries</small>
+                        <ul class="nav nav-tabs small">
+                            <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a></li>
+                            <li @if($project == 'royalcaribbean')class="active" @endif><a href="?project=royalcaribbean">Royalcaribbean</a></li>
+                        </ul>
                     </h1>
                     <ol class="breadcrumb">
                         <li class="active">
@@ -224,7 +228,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/travelocity-morris-data.js"></script>
+    <script src="js/plugins/morris/cruise-morris-data.js"></script>
 
 </div>
 

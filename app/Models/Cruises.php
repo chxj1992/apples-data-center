@@ -2,11 +2,11 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class TravelocityItineraries extends Model
+class Cruises extends Model
 {
     public $timestamps = false;
 
-    public $table = 'travelocity_itineraries';
+    public $table = 'cruises';
 
     protected $casts = [
         'id' => 'int',
