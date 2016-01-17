@@ -16,7 +16,11 @@ $app->get('/', [
     'as' => 'cruise', 'uses' => 'CruiseController@index'
 ]);
 
-$app->get('/cruise/chart', [
-    'as' => 'cruise-chart', 'uses' => 'CruiseController@itinerariesByMonth'
+$app->get('/cruise/priceByDepartureTime', [
+    'as' => 'cruise-chart', 'uses' => 'CruiseController@priceByDepartureTime'
+]);
+
+$app->get('/cruise/priceByDuration', [
+    'as' => 'cruise-chart', 'uses' => 'CruiseController@priceByDuration'
 ]);
 

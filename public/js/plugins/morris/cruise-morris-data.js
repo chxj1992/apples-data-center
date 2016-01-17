@@ -4,9 +4,9 @@ $(function () {
 
     var project = $('#project').val();
 
-    $.getJSON('/cruise/chart?project=' + project, function (data) {
-        var itineraries = Morris.Line({
-            element: 'travelocity-itineraries-chart',
+    $.getJSON('/cruise/priceByDepartureTime?project=' + project, function (data) {
+        Morris.Line({
+            element: 'price-by-departure-time-chart',
             data: data,
             xkey: 'period',
             ykeys: ['inside', 'oceanview', 'balcony', 'suite'],
@@ -14,6 +14,16 @@ $(function () {
             pointSize: 1,
             hideHover: 'auto',
             resize: true
+        });
+    });
+
+    $.getJSON('/cruise/priceByDuration?project=' + project, function (data) {
+        Morris.Bar({
+            element: 'price-by-duration-chart',
+            data: data,
+            xkey: 'duration_group',
+            ykeys: ['inside', 'oceanview', 'balcony', 'suite'],
+            labels: ['inside', 'oceanview', 'balcony', 'suite']
         });
     });
 

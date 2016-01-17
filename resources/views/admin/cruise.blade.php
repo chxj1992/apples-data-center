@@ -183,10 +183,18 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Price Chart</h3>
+                            <h3 class="panel-title"><i class="fa fa-line-chart-o fa-fw"></i> Price By Departure Time</h3>
                         </div>
                         <div class="panel-body">
-                            <div id="travelocity-itineraries-chart"></div>
+                            <div id="price-by-departure-time-chart"></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Price By Duration</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="price-by-duration-chart"></div>
                         </div>
                     </div>
                 </div>

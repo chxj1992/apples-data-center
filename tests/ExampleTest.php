@@ -19,6 +19,6 @@ class ExampleTest extends TestCase
     }
 
     public function testA(){
-        CruiseController::itinerariesByMonth();
+        CruiseController::priceByMonth();
     }
 }

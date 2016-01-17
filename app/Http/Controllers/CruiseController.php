@@ -27,13 +27,27 @@ class CruiseController extends Controller
             ->with('avg', $avg);
     }
 
-    public function itinerariesByMonth()
+    public function priceByDepartureTime()
     {
         $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
 
         $data = Cruises::whereProject($project)->select(
             DB::raw($this->buildSelectSQL() . ", date_format(departure_time, '%Y-%m') as period")
         )->groupBy('period')->get();
+
+        return response()->json($data);
+    }
+
+    public function priceByDuration()
+    {
+        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+
+        $duration = Cruises::whereProject($project)->orderBy('duration', 'desc')->first()->duration;
+        $durationStep = intval($duration / 10);
+
+        $data = Cruises::whereProject($project)->select(
+            DB::raw($this->buildSelectSQL() . ", (duration div $durationStep * $durationStep) as duration_group")
+        )->groupBy('duration_group')->get();
 
         return response()->json($data);
     }
@@ -47,7 +61,8 @@ class CruiseController extends Controller
         return $project;
     }
 
-    private function buildSelectSQL()
+    private
+    function buildSelectSQL()
     {
         return
             'avg(case when (inside > ' . self::PRICE_MIN . ' AND inside < ' . self::PRICE_MAX . ') then inside else null end) div 1 as inside,
