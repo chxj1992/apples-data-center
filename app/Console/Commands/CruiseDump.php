@@ -35,12 +35,12 @@ class CruiseDump extends Command
     {
         $db = config('database.connections.apples_data_center');
 
-        $name = 'cruises_' . $project . '_' . date('Y-m-d') . '.sql';
+        $name = $project . '_' . date('Y-m-d') . '.sql';
 
         $path = '/export/cruises/' . $name;
 
         system('mysqldump -u' . $db['username'] . ' -p' . $db['password'] . ' ' . $db['database']
-            . ' cruises --where="from=' . $project . '" >' . base_path('public') . $path);
+            . ' cruises --where="project=\''.$project.'\'" >' . base_path('public') . $path);
 
         Export::firstOrCreate(['project' => $project, 'name' => $name, 'path' => $path]);
     }
