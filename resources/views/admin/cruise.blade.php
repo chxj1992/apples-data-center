@@ -183,7 +183,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-line-chart-o fa-fw"></i> Price By Departure Time (Month)</h3>
+                            <h3 class="panel-title"><i class="fa fa-line-chart fa-fw"></i> Price By Departure Time (Month)</h3>
                         </div>
                         <div class="panel-body">
                             <div id="price-by-departure-time-chart"></div>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Price By Duration (Day)</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart fa-fw"></i> Price By Duration (Day)</h3>
                         </div>
                         <div class="panel-body">
                             <div id="price-by-duration-chart"></div>
@@ -201,7 +201,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-pie-chart-o fa-fw"></i> Count By Departure Time (Year)</h3>
+                            <h3 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i> Count By Departure Time (Year)</h3>
                         </div>
                         <div class="panel-body">
                             <div id="count-by-departure-time-chart"></div>
