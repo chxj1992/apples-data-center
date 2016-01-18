@@ -17,6 +17,14 @@ $(function () {
         });
     });
 
+    $.getJSON('/cruise/countByDepartureTime?project=' + project, function (data) {
+        Morris.Donut({
+            element: 'count-by-departure-time-chart',
+            data: data,
+            resize: true
+        });
+    });
+
     $.getJSON('/cruise/priceByDuration?project=' + project, function (data) {
         Morris.Bar({
             element: 'price-by-duration-chart',

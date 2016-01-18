@@ -38,6 +38,17 @@ class CruiseController extends Controller
         return response()->json($data);
     }
 
+    public function countByDepartureTime()
+    {
+        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+
+        $data = Cruises::whereProject($project)->select(
+            DB::raw("date_format(departure_time, '%Y') as label, count(*) as value")
+        )->groupBy('label')->get();
+
+        return response()->json($data);
+    }
+
     public function priceByDuration()
     {
         $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));

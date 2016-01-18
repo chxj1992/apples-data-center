@@ -17,10 +17,14 @@ $app->get('/', [
 ]);
 
 $app->get('/cruise/priceByDepartureTime', [
-    'as' => 'cruise-chart', 'uses' => 'CruiseController@priceByDepartureTime'
+    'uses' => 'CruiseController@priceByDepartureTime'
+]);
+
+$app->get('/cruise/countByDepartureTime', [
+    'uses' => 'CruiseController@countByDepartureTime'
 ]);
 
 $app->get('/cruise/priceByDuration', [
-    'as' => 'cruise-chart', 'uses' => 'CruiseController@priceByDuration'
+    'uses' => 'CruiseController@priceByDuration'
 ]);
 
