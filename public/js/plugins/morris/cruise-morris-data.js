@@ -23,7 +23,9 @@ $(function () {
             data: data,
             xkey: 'duration_group',
             ykeys: ['inside', 'oceanview', 'balcony', 'suite'],
-            labels: ['inside', 'oceanview', 'balcony', 'suite']
+            labels: ['inside', 'oceanview', 'balcony', 'suite'],
+            hideHover: 'auto',
+            resize: true
         });
     });
 
