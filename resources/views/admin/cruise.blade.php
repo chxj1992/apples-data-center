@@ -72,6 +72,7 @@
                         <ul class="nav nav-tabs" style="font-size: 14px;">
                             <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a></li>
                             <li @if($project == 'royalcaribbean')class="active" @endif><a href="?project=royalcaribbean">Royalcaribbean</a></li>
+                            <li @if($project == 'carnival')class="active" @endif><a href="?project=carnival">Carnival</a></li>
                         </ul>
                     </h1>
                     <ol class="breadcrumb">

@@ -32,11 +32,12 @@ class CruiseCrawl extends Command
 
         $this->crawl(Project::ROYALCARIBBEAN);
         $this->crawl(Project::TRAVELOCITY);
+        $this->crawl(Project::TRAVELOCITY);
     }
 
     private function crawl($project = Project::TRAVELOCITY)
     {
-        system('python ' . config('app.crawler_path') . "/$project/run.py >"
+        system('python ' . config('app.crawler_path') . "/cruise/$project/run.py >"
             . storage_path('logs') . "/cruises/{$project}_" . date('Y-m-d') . '.log');
     }
 
