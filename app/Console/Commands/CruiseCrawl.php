@@ -30,14 +30,14 @@ class CruiseCrawl extends Command
     {
         Cruises::truncate();
 
-        $this->crawl(Project::ROYALCARIBBEAN);
-        $this->crawl(Project::TRAVELOCITY);
-        $this->crawl(Project::TRAVELOCITY);
+        $this->crawl(Project::TRAVELOCITY, 10);
+        $this->crawl(Project::ROYALCARIBBEAN, 5);
+        $this->crawl(Project::CARNIVAL);
     }
 
-    private function crawl($project = Project::TRAVELOCITY)
+    private function crawl($project = Project::TRAVELOCITY, $workerNum = 1)
     {
-        system('python ' . config('app.crawler_path') . "/cruise/$project/run.py >"
+        system('python ' . config('app.crawler_path') . "/cruise/run.py -p $project -n $workerNum >"
             . storage_path('logs') . "/cruises/{$project}_" . date('Y-m-d') . '.log');
     }
 
