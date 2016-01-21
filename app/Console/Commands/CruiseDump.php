@@ -30,6 +30,7 @@ class CruiseDump extends Command
         $this->dumpToSql(Project::ROYALCARIBBEAN);
         $this->dumpToSql(Project::TRAVELOCITY);
         $this->dumpToSql(Project::CARNIVAL);
+        $this->dumpToSql(Project::DISNEYCRUISE);
     }
 
     private function dumpToSql($project = Project::TRAVELOCITY)

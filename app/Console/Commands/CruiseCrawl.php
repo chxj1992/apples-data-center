@@ -33,6 +33,7 @@ class CruiseCrawl extends Command
         $this->crawl(Project::TRAVELOCITY, 10);
         $this->crawl(Project::ROYALCARIBBEAN, 5);
         $this->crawl(Project::CARNIVAL);
+        $this->crawl(Project::DISNEYCRUISE);
     }
 
     private function crawl($project = Project::TRAVELOCITY, $workerNum = 1)

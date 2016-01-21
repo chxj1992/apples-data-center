@@ -75,8 +75,9 @@
                     <h1 class="page-header">
                         <ul class="nav nav-tabs" style="font-size: 14px;">
                             <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a></li>
-                            <li @if($project == 'royalcaribbean')class="active" @endif><a href="?project=royalcaribbean">Royalcaribbean</a></li>
+                            <li @if($project == 'royalcaribbean')class="active" @endif><a href="?project=royalcaribbean">RoyalCaribbean</a></li>
                             <li @if($project == 'carnival')class="active" @endif><a href="?project=carnival">Carnival</a></li>
+                            <li @if($project == 'disneycruise')class="active" @endif><a href="?project=disneycruise">DisneyCruise</a></li>
                         </ul>
                     </h1>
                     <ol class="breadcrumb">

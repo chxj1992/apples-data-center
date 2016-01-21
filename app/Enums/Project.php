@@ -6,6 +6,7 @@ class Project
     const TRAVELOCITY = 'travelocity';
     const ROYALCARIBBEAN = 'royalcaribbean';
     const CARNIVAL = 'carnival';
+    const DISNEYCRUISE = 'disneycruise';
 
     public static function getValues()
     {
@@ -13,6 +14,7 @@ class Project
             self::TRAVELOCITY,
             self::ROYALCARIBBEAN,
             self::CARNIVAL,
+            self::DISNEYCRUISE,
         ];
     }
 
