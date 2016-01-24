@@ -27,13 +27,12 @@ class CruiseDump extends Command
      */
     public function handle()
     {
-        $this->dumpToSql(Project::ROYALCARIBBEAN);
-        $this->dumpToSql(Project::TRAVELOCITY);
-        $this->dumpToSql(Project::CARNIVAL);
-        $this->dumpToSql(Project::DISNEYCRUISE);
+        foreach (Project::getValues() as $project) {
+            self::dumpToSql($project);
+        }
     }
 
-    private function dumpToSql($project = Project::TRAVELOCITY)
+    public static function dumpToSql($project = Project::TRAVELOCITY)
     {
         $db = config('database.connections.apples_data_center');
 
@@ -42,7 +41,7 @@ class CruiseDump extends Command
         $path = '/export/cruises/' . $name;
 
         system('mysqldump -u' . $db['username'] . ' -p' . $db['password'] . ' ' . $db['database']
-            . ' cruises --where="project=\''.$project.'\'" >' . base_path('public') . $path);
+            . ' cruises --where="project=\'' . $project . '\'" >' . base_path('public') . $path);
 
         Export::firstOrCreate(['project' => $project, 'name' => $name, 'path' => $path]);
     }

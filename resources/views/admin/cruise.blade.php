@@ -35,7 +35,10 @@
 <body>
 
 <a href="https://github.com/chxj1992/apples-data-center">
-<img style="position: fixed; top: 0; right: 0; border: 0; z-index: 3000;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 3000;"
+         src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+         alt="Fork me on GitHub"
+         data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
 </a>
 
 <input id="project" class="hidden" value="{{$project}}">
@@ -74,16 +77,30 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         <ul class="nav nav-tabs" style="font-size: 14px;">
-                            <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a></li>
-                            <li @if($project == 'royalcaribbean')class="active" @endif><a href="?project=royalcaribbean">RoyalCaribbean</a></li>
-                            <li @if($project == 'carnival')class="active" @endif><a href="?project=carnival">Carnival</a></li>
-                            <li @if($project == 'disneycruise')class="active" @endif><a href="?project=disneycruise">DisneyCruise</a></li>
+                            <li @if(!$project)class="active" @endif><a href="/">Overview</a>
+                            </li>
+                            <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a>
+                            </li>
+                            <li @if($project == 'royalcaribbean')class="active" @endif><a
+                                        href="?project=royalcaribbean">RoyalCaribbean</a></li>
+                            <li @if($project == 'carnival')class="active" @endif><a
+                                        href="?project=carnival">Carnival</a></li>
+                            <li @if($project == 'disneycruise')class="active" @endif><a href="?project=disneycruise">DisneyCruise</a>
+                            </li>
                         </ul>
                     </h1>
                     <ol class="breadcrumb">
                         <li class="active">
                             <i class="fa fa-dashboard"></i> Dashboard
                         </li>
+                        @if($project)
+                            <button id="dump-btn" type="button" class="btn btn-xs btn-danger pull-right"
+                                    style="margin-right: 10px;" data-toggle="modal" data-target=".modal"> Dump
+                            </button>
+                            <button id="crawl-btn" type="button" class="btn btn-xs btn-warning pull-right"
+                                    style="margin-right: 10px;" data-toggle="modal" data-target=".modal"> Crawl
+                            </button>
+                        @endif
                     </ol>
                 </div>
             </div>
@@ -189,7 +206,8 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-line-chart fa-fw"></i> Price By Departure Time (Month)</h3>
+                            <h3 class="panel-title"><i class="fa fa-line-chart fa-fw"></i> Price By Departure Time
+                                (Month)</h3>
                         </div>
                         <div class="panel-body">
                             <div id="price-by-departure-time-chart"></div>
@@ -207,7 +225,8 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i> Count By Departure Time (Year)</h3>
+                            <h3 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i> Count By Departure Time (Year)
+                            </h3>
                         </div>
                         <div class="panel-body">
                             <div id="count-by-departure-time-chart"></div>
@@ -241,6 +260,27 @@
     </div>
     <!-- /#wrapper -->
 
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Notice</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The request was sent and is in process ! </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -251,6 +291,7 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/cruise-morris-data.js"></script>
+    <script src="js/main.js"></script>
 
 </div>
 

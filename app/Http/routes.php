@@ -28,3 +28,12 @@ $app->get('/cruise/priceByDuration', [
     'uses' => 'CruiseController@priceByDuration'
 ]);
 
+
+$app->post('/cruise/crawl', [
+    'uses' => 'CruiseController@crawl'
+]);
+
+$app->post('/cruise/dump', [
+    'uses' => 'CruiseController@dump'
+]);
+

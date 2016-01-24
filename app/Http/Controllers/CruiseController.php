@@ -1,5 +1,7 @@
 <?php namespace Chxj1992\ApplesDataCenter\App\Http\Controllers;
 
+use Chxj1992\ApplesDataCenter\App\Console\Commands\CruiseCrawl;
+use Chxj1992\ApplesDataCenter\App\Console\Commands\CruiseDump;
 use Chxj1992\ApplesDataCenter\App\Enums\Project;
 use Chxj1992\ApplesDataCenter\App\Models\Cruises;
 use Chxj1992\ApplesDataCenter\App\Models\Export;
@@ -16,10 +18,13 @@ class CruiseController extends Controller
 
     public function index()
     {
-        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+        $project = $this->validateProject(Input::get('project'));
 
-        $exports = Export::whereProject($project)->orderBy('id', 'desc')->take(self::EXPORT_PAGE_SIZE)->get();;
-        $avg = Cruises::whereProject($project)->select(DB::raw($this->buildSelectSQL()))->first();
+        $cruiseQuery = $project ? Cruises::whereProject($project) : Cruises::getQuery();
+        $exportQuery = $project ? Export::whereProject($project) : Export::getQuery();
+
+        $exports = $exportQuery->orderBy('id', 'desc')->take(self::EXPORT_PAGE_SIZE)->get();;
+        $avg = $cruiseQuery->select(DB::raw($this->buildSelectSQL()))->first();
 
         return view('admin.cruise')
             ->with('project', $project)
@@ -29,9 +34,9 @@ class CruiseController extends Controller
 
     public function priceByDepartureTime()
     {
-        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+        $query = $this->buildCruiseQuery();
 
-        $data = Cruises::whereProject($project)->select(
+        $data = $query->select(
             DB::raw($this->buildSelectSQL() . ", date_format(departure_time, '%Y-%m') as period")
         )->groupBy('period')->get();
 
@@ -40,9 +45,9 @@ class CruiseController extends Controller
 
     public function countByDepartureTime()
     {
-        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+        $query = $this->buildCruiseQuery();
 
-        $data = Cruises::whereProject($project)->select(
+        $data = $query->select(
             DB::raw("date_format(departure_time, '%Y') as label, count(*) as value")
         )->groupBy('label')->get();
 
@@ -51,29 +56,68 @@ class CruiseController extends Controller
 
     public function priceByDuration()
     {
-        $project = $this->validateProject(Input::get('project', Project::TRAVELOCITY));
+        $durationStep = $this->getDurationStep();
+        $query = $this->buildCruiseQuery();
 
-        $duration = Cruises::whereProject($project)->orderBy('duration', 'desc')->first()->duration;
-        $durationStep = intval($duration / 10);
-
-        $data = Cruises::whereProject($project)->select(
+        $data = $query->select(
             DB::raw($this->buildSelectSQL() . ", (duration div $durationStep * $durationStep) as duration_group")
         )->groupBy('duration_group')->get();
 
         return response()->json($data);
     }
 
+    public function dump()
+    {
+        if (!$project = $this->validateProject(Input::get('project'))) {
+            return response()->json(false);
+        }
+
+        try {
+            CruiseDump::dumpToSql($project);
+            return response()->json(true);
+        } catch (\Exception $e) {
+            return response()->json(false);
+        }
+    }
+
+    public function crawl()
+    {
+        if (!$project = $this->validateProject(Input::get('project'))) {
+            return response()->json(false);
+        }
+
+        try {
+            CruiseCrawl::crawl($project);
+            return response()->json(true);
+        } catch (\Exception $e) {
+            return response()->json(false);
+        }
+    }
+
+    private function getDurationStep()
+    {
+        $query = $this->buildCruiseQuery();
+        $duration = $query->orderBy('duration', 'desc')->first()->duration;
+        return intval($duration / 10);
+    }
+
+    private function buildCruiseQuery()
+    {
+        $project = $this->validateProject(Input::get('project'));
+
+        return $project ? Cruises::whereProject($project) : Cruises::getQuery();
+    }
+
     private function validateProject($project)
     {
         if (!in_array($project, Project::getValues())) {
-            return Project::TRAVELOCITY;
+            return false;
         }
 
         return $project;
     }
 
-    private
-    function buildSelectSQL()
+    private function buildSelectSQL()
     {
         return
             'avg(case when (inside > ' . self::PRICE_MIN . ' AND inside < ' . self::PRICE_MAX . ') then inside else null end) div 1 as inside,
