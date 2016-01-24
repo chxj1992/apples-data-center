@@ -97,8 +97,8 @@ class CruiseController extends Controller
     private function getDurationStep()
     {
         $query = $this->buildCruiseQuery();
-        $duration = $query->orderBy('duration', 'desc')->first()->duration;
-        return intval($duration / 10);
+        $ret = $query->orderBy('duration', 'desc')->first();
+        return $ret ? intval($ret->duration / 10) : 1;
     }
 
     private function buildCruiseQuery()
