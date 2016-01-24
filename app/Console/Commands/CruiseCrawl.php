@@ -37,6 +37,8 @@ class CruiseCrawl extends Command
 
     public static function crawl($project = Project::TRAVELOCITY, $workerNum = 1)
     {
+        Cruises::whereProject($project)->delete();
+
         system('python ' . config('app.crawler_path') . "/cruise/run.py -p $project -n $workerNum >"
             . storage_path('logs') . "/cruises/{$project}_" . date('Y-m-d') . '.log');
     }
