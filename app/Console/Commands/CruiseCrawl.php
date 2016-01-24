@@ -39,6 +39,8 @@ class CruiseCrawl extends Command
     {
         Cruises::whereProject($project)->delete();
 
+        system("ps aux | grep 'run.py -p ".$project."' | grep -v grep | awk '{print $2}' | xargs kill -9");
+
         system('python ' . config('app.crawler_path') . "/cruise/run.py -p $project -n $workerNum >"
             . storage_path('logs') . "/cruises/{$project}_" . date('Y-m-d') . '.log');
     }
