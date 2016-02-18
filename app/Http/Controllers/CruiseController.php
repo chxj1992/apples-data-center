@@ -87,7 +87,8 @@ class CruiseController extends Controller
         }
 
         try {
-            CruiseCrawl::crawl($project);
+            $workerNum = Project::getWorkerNum($project);
+            CruiseCrawl::crawl($project, $workerNum);
             return response()->json(true);
         } catch (\Exception $e) {
             return response()->json(false);
