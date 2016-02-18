@@ -79,13 +79,20 @@
                         <ul class="nav nav-tabs" style="font-size: 14px;">
                             <li @if(!$project)class="active" @endif><a href="/">Overview</a>
                             </li>
-                            <li @if($project == 'travelocity')class="active" @endif><a href="?project=travelocity">Travelocity</a>
+                            <li @if($project == 'travelocity')class="active" @endif>
+                                <a href="?project=travelocity">Travelocity</a>
                             </li>
-                            <li @if($project == 'royalcaribbean')class="active" @endif><a
-                                        href="?project=royalcaribbean">RoyalCaribbean</a></li>
-                            <li @if($project == 'carnival')class="active" @endif><a
-                                        href="?project=carnival">Carnival</a></li>
-                            <li @if($project == 'disneycruise')class="active" @endif><a href="?project=disneycruise">DisneyCruise</a>
+                            <li @if($project == 'royalcaribbean')class="active" @endif>
+                                <a href="?project=royalcaribbean">RoyalCaribbean</a>
+                            </li>
+                            <li @if($project == 'carnival')class="active" @endif>
+                                <a href="?project=carnival">Carnival</a>
+                            </li>
+                            <li @if($project == 'disneycruise')class="active" @endif>
+                                <a href="?project=disneycruise">DisneyCruise</a>
+                            </li>
+                            <li @if($project == 'ncl')class="active" @endif>
+                                <a href="?project=ncl">NCL</a>
                             </li>
                         </ul>
                     </h1>
