@@ -12,7 +12,7 @@ return [
         'apples_data_center'=> [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
-            'port' => 3306,
+            'port' => env('DB_PORT', '3306'),
             'database' => 'apples_data_center',
             'username' => 'root',
             'password' => env('DB_PASS', ''),
