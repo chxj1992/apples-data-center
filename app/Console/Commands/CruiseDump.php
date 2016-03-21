@@ -40,7 +40,7 @@ class CruiseDump extends Command
 
         $path = '/export/cruises/' . $name;
 
-        system('mysqldump -h' . $db['username'] . ' -P' . $db['port']
+        system('mysqldump -h' . $db['host'] . ' -P' . $db['port']
             . ' -u' . $db['username'] . ' -p' . $db['password'] . ' ' . $db['database']
             . ' cruises --where="project=\'' . $project . '\'" >' . base_path('public') . $path);
 
