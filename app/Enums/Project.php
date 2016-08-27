@@ -8,6 +8,7 @@ class Project
     const CARNIVAL = 'carnival';
     const DISNEYCRUISE = 'disneycruise';
     const NCL = 'ncl';
+    const PRINCESS = 'princess';
 
     public static $workerMap = [
         self::TRAVELOCITY => 10,
@@ -15,6 +16,7 @@ class Project
         self::CARNIVAL => 1,
         self::DISNEYCRUISE => 1,
         self::NCL => 5,
+        self::PRINCESS => 1,
     ];
 
     public static function getValues()
@@ -25,6 +27,7 @@ class Project
             self::CARNIVAL,
             self::DISNEYCRUISE,
             self::NCL,
+            self::PRINCESS,
         ];
     }
 

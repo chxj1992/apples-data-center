@@ -94,6 +94,9 @@
                             <li @if($project == 'ncl')class="active" @endif>
                                 <a href="?project=ncl">NCL</a>
                             </li>
+                            <li @if($project == 'princess')class="active" @endif>
+                                <a href="?project=princess">Princess</a>
+                            </li>
                         </ul>
                     </h1>
                     <ol class="breadcrumb">
